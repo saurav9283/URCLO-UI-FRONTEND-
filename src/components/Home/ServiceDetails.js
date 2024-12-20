@@ -3,16 +3,26 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { CiStar } from "react-icons/ci";
 import { PiUsersThreeLight } from "react-icons/pi";
-import { getMastercategory } from '../../Service/api-path';
+import { getCategory, getMastercategory } from '../../Service/api-path';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Skeleton from '@mui/material/Skeleton';
 import Box from '@mui/material/Box';
 import { motion } from 'framer-motion';
+import ServiceModal from './ServiceModel/ServiceModel';
 
 
 function ServiceDetails() {
+    const [open, setOpen] = useState(false);
     const [services, setServices] = useState([]);
+    const [selectedService, setSelectedService] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const servicess = [
+        { name: "Service 1", icon: "https://via.placeholder.com/100" },
+        { name: "Service 2", icon: "https://via.placeholder.com/100" },
+        { name: "Service 3", icon: "https://via.placeholder.com/100" },
+        { name: "Service 4", icon: "https://via.placeholder.com/100" },
+      ];
 
     const fetchMasterCategory = async () => {
         try {
@@ -47,6 +57,36 @@ function ServiceDetails() {
     };
 
     const serviceChunks = chunkArray(services, 6);
+
+    const FetchCategory = async (id) => {
+        try {
+            const data = await getCategory(id);
+            const filteredData = data.data.map((item) => {
+                return {
+                    cat_id: item.cat_id,
+                    cat_name: item.cat_name,
+                    image_url: item.image_url,
+                    master_id: item.masterId,
+                };
+            });
+            console.log('filteredData: ', filteredData);
+            setSelectedService(filteredData);
+
+        } catch (error) {
+            console.error('Error in fetching master category:', error);
+        }
+    };
+
+    const handleOpenModal = (service) => {
+        // setSelectedService(service);
+        FetchCategory(service.masterId);
+        setOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setOpen(false);
+        setSelectedService(null);
+    }
 
     return (
         <div className="p-4 md:p-8 bg-gray-50">
@@ -90,6 +130,7 @@ function ServiceDetails() {
                                                 key={index}
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 1.3 }}
+                                                onClick={() => handleOpenModal(service)}
                                                 className="cursor-pointer relative flex flex-col items-center justify-end p-3 bg-white shadow-md rounded-xl hover:shadow-lg transition-transform h-36 overflow-hidden"
                                             >
                                                 <div className="relative w-full h-36">
@@ -180,6 +221,9 @@ function ServiceDetails() {
                     </div>
                 </div>
             </div>
+            {open && (
+                <ServiceModal open={open} handleClose={handleCloseModal} selectedService={selectedService} />
+            )}
         </div>
     );
 }
