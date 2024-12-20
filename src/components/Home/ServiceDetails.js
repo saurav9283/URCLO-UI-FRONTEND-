@@ -25,10 +25,10 @@ function ServiceDetails() {
             });
             console.log('filteredData: ', filteredData);
             setServices(filteredData);
-            setLoading(false); 
+            setLoading(false);
         } catch (error) {
             console.error('Error in fetching master category:', error);
-            setLoading(false);  
+            setLoading(true);
         }
     };
 
@@ -81,9 +81,9 @@ function ServiceDetails() {
                         ) : (
                             // Show actual data when loaded
                             serviceChunks?.map((chunk, chunkIndex) => (
-                                <div key={chunkIndex} className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8 mt-6">
+                                <div key={chunkIndex} className=" grid grid-cols-2 md:grid-cols-3 gap-6 mb-8 mt-6">
                                     {chunk?.map((service, index) => (
-                                        <div key={index} className="relative flex flex-col items-center justify-end p-3 bg-white shadow-md rounded-xl hover:shadow-lg transition transform hover:scale-105 h-36 overflow-hidden">
+                                        <div key={index} className="cursor-pointer relative flex flex-col items-center justify-end p-3 bg-white shadow-md rounded-xl hover:shadow-lg transition transform hover:scale-105 h-36 overflow-hidden">
                                             <div className="relative w-full h-36">
                                                 <img
                                                     className="h-full w-full object-cover rounded-t-lg shadow-lg"
@@ -92,7 +92,7 @@ function ServiceDetails() {
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-t-lg"></div>
                                             </div>
-                                            <p className="absolute bottom-0 w-full text-center flex justify-center items-center md:mt-0 text-[11px] md:text-[14px] font-normal font-bellota text-white bg-black/90 h-12">
+                                            <p className=" cursor-pointer absolute bottom-0 w-full text-center flex justify-center items-center md:mt-0 text-[11px] md:text-[14px] font-normal font-bellota text-white bg-black/90 h-12">
                                                 {service.name}
                                             </p>
                                         </div>

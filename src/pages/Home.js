@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import HeaderBanner from '../components/Home/HeaderBanner/HeaderBanner'
 import ServiceDetails from '../components/Home/ServiceDetails'
 import ExperienceCrousal from '../components/Home/Experience/ExperienceCrousal'
+import ServiceModel from '../components/Home/ServiceModel/ServiceModel'
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <HeaderBanner/>
       <ServiceDetails/>
       <ExperienceCrousal/>
+      <ServiceModel/>
     </div>
   )
 }
