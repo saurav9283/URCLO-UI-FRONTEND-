@@ -63,8 +63,7 @@ function ServiceDetails() {
             </h1>
 
             <div className='md:flex gap-10'>
-                <div className="md:w-[70%] w-full mx-auto px-4">
-                    {/* Carousel Section */}
+                <div className="md:w-[70%] w-full md:mt-[-15px] mx-auto px-4">
                     <Carousel autoPlay interval={3000} infiniteLoop showArrows={false}>
                         {serviceChunks?.map((chunk, chunkIndex) => (
                             <div
@@ -86,7 +85,7 @@ function ServiceDetails() {
                                             <div className="absolute inset-0 bg-gradient-to-t  from-black/80 via-transparent to-transparent rounded-t-lg"></div>
                                         </div>
                                         {/* Text on Image */}
-                                        <p className="absolute bottom-0 w-full text-center flex justify-center items-center md:mt-0 text-[11px] md:text-[14px] md:text-base font-normal font-montserrat text-white bg-black/90 h-12">
+                                        <p className="absolute bottom-0 w-full text-center flex justify-center items-center md:mt-0 text-[11px] md:text-[14px]  font-normal font-bellota text-white bg-black/90 h-12">
                                             {service.name}
                                         </p>
                                     </div>
@@ -95,8 +94,7 @@ function ServiceDetails() {
                         ))}
                     </Carousel>
 
-                    {/* Ratings Section */}
-                    <div className="flex flex-col md:flex-row gap-8 items-center justify-center mt-4">
+                    <div className="flex flex-col md:flex-row gap-8 items-center justify-center mt-[-20px]">
                         <div className="flex items-center gap-4">
                             <CiStar size={30} className="text-yellow-500" />
                             <div>
