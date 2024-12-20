@@ -4,7 +4,7 @@ import { Bell, MapPin, Search, ShoppingCart, User } from "lucide-react";
 
 function Navbar() {
     return (
-        <nav className="flex items-center justify-between px-4 py-3 bg-white shadow-md">
+        <nav className="flex items-center justify-between px-4 py-4 bg-white shadow-md">
             {/* Left Section */}
             <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
