@@ -89,7 +89,7 @@ function ServiceDetails() {
                                             <motion.div
                                                 key={index}
                                                 whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 1.5 }}
+                                                whileTap={{ scale: 1.3 }}
                                                 className="cursor-pointer relative flex flex-col items-center justify-end p-3 bg-white shadow-md rounded-xl hover:shadow-lg transition-transform h-36 overflow-hidden"
                                             >
                                                 <div className="relative w-full h-36">
