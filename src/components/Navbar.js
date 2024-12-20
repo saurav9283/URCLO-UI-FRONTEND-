@@ -53,8 +53,19 @@ function Navbar() {
 
             {/* Right Section */}
             <div className="flex items-center space-x-8">
-                <Bell className="cursor-pointer w-5 h-5" />
-                <ShoppingCart className="cursor-pointer w-5 h-5" />
+                <div className="relative">
+                    <Bell className="cursor-pointer w-5 h-5" />
+                    <span className="absolute top-[-12px] right-[-8px] bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                        3
+                    </span>
+                </div>
+                <div className="relative">
+                    <ShoppingCart className="cursor-pointer w-5 h-5" />
+                    <span className="absolute top-[-12px] right-[-12px] bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full md:top-[-10px] md:right-[-10px] md:w-5 md:h-5 lg:top-[-14px] lg:right-[-8px] lg:w-5 lg:h-5">
+                        1
+                    </span>
+
+                </div>
                 <User className="cursor-pointer w-5 h-5" />
             </div>
 
