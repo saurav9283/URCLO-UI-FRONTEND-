@@ -42,7 +42,7 @@ function ServiceDetails() {
                                 {chunk?.map((service, index) => (
                                     <div
                                         key={index}
-                                        className="flex flex-col  items-center p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition"
+                                        className="flex flex-col  items-center p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition h-36"
                                     >
                                         <div className="text-3xl">{service.icon}</div>
                                         <p className="mt-2 text-center text-sm md:text-base font-medium">
