@@ -9,11 +9,11 @@ function HeaderBanner() {
                     <div >
                         <span ><Sparkles className='text-[#6e43e5] font-bold' /></span>
                     </div>
-                    <div className='text-[#6e43e5] md:font-bold font-roboto'>Plus</div>
+                    <div className='text-[#6e43e5] text-sm md:font-bold font-roboto'>Plus</div>
                 </div>
                 <div className='flex gap-4 md:gap-8 justify-center items-center'>
                     <div>
-                        <p className='text-[#321c6d] md:font-semibold font-urbanist'>Save 10% on every service at ₹249</p>
+                        <p className='text-[#321c6d] text-sm md:font-semibold font-urbanist '>Save 10% on every service at ₹249</p>
                     </div>
                     <div><ChevronRight className='text-[#321c6d] cursor-pointer' size={18} /></div>
                 </div>
