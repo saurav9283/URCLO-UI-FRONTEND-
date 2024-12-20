@@ -1,6 +1,8 @@
 import React from 'react'
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import { CiStar } from "react-icons/ci";
+import { PiUsersThreeLight } from "react-icons/pi";
 function ServiceDetails() {
 
     const services = [
@@ -35,17 +37,17 @@ function ServiceDetails() {
             </h1>
 
             <div className='md:flex gap-10'>
-                <div className="md:w-[70%] mt-5">
+                <div className="md:w-[70%] ">
                     <Carousel autoPlay interval={3000} infiniteLoop showArrows={false}>
                         {serviceChunks?.map((chunk, chunkIndex) => (
                             <div key={chunkIndex} className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8 mt-[7%]">
                                 {chunk?.map((service, index) => (
                                     <div
                                         key={index}
-                                        className="flex flex-col  items-center p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition h-36"
+                                        className="flex flex-col  items-center justify-between p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition h-40"
                                     >
                                         <div className="text-3xl">{service.icon}</div>
-                                        <p className="mt-2 text-center text-sm md:text-base font-medium">
+                                        <p className="mt-2 text-center text-xs md:text-base font-medium font-montserrat">
                                             {service.name}
                                         </p>
                                     </div>
@@ -53,6 +55,22 @@ function ServiceDetails() {
                             </div>
                         ))}
                     </Carousel>
+                    <div className='flex gap-12 mt-[-5%]'>
+                        <div className=' flex'>
+                            <CiStar size={30} className='' />
+                            <div>
+                                <p className='pl-8 text-xl font-bold flex flex-col font-montserrat'>4.8</p>
+                                <p className='pl-8 text-[#321c6d] text-sm font-bold font-urbanist'>Service rating</p>
+                            </div>
+                        </div>
+                        <div className=' flex'>
+                            <PiUsersThreeLight size={30} />
+                            <div>
+                                <p className='pl-8  text-xl font-bold flex flex-col  font-montserrat'>12M+</p>
+                                <p className='pl-8 text-[#321c6d] text-sm font-bold font-urbanist'>Customers Globally</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="md:flex hidden w-[30%] md:w-[70%] ">
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-1 max-[450px]:grid-cols-1  max-[600px]:grid-cols-2 min-[600px]:grid-cols-2 '>
