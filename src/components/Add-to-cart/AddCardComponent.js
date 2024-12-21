@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import PolicyModel from "./PolicyModel";
 
 const AddCardComponent = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <div className="flex flex-col md:flex-row w-full min-h-screen p-4 bg-gray-50">
       {/* Left Section */}
@@ -27,16 +34,17 @@ const AddCardComponent = () => {
         </div>
         <div className="w-full mt-6">
           <h3 className="font-bold text-lg">Cancellation policy</h3>
-          <p className="text-gray-600">
+          <p className="text-gray-600  text-sm">
             Free cancellations if done more than 3 hrs before the service or if a
             professional isn’t assigned. A fee will be charged otherwise.
           </p>
-          <p className=" cursor-pointer  underline mt-2">Read full policy</p>
+          <p onClick={toggleModal} className=" cursor-pointer  underline mt-2 font-semibold">Read full policy</p>
         </div>
       </div>
+      {isOpen && <PolicyModel isOpen = {isOpen} toggleModal={toggleModal}/>}
 
       {/* Right Section */}
-      <div className="flex flex-col  w-full md:w-1/3  bg-white rounded-lg shadow-md mt-4 md:mt-0 md:ml-6 p-6 space-y-4">
+      <div className="flex flex-col  w-full md:w-1/3  bg-white rounded-lg shadow-md mt-4 md:mt-0 md:ml-6 p-6 space-y-10">
         <div className="max-h-[60vh] overflow-y-scroll">
           <div className="border-b pb-4">
             <h3 className="font-bold">Island chimney check-up</h3>
