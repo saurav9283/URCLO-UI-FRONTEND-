@@ -1,11 +1,17 @@
 import React from "react";
 import { ReactTyped } from "react-typed";
 import { Bell, MapPin, Search, ShoppingCart, User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+    const navigate  = useNavigate();
+
+    const handelNavigate = () => {
+        navigate("/cart");
+    }
     return (
-        <nav className="flex items-center justify-between px-4 py-4 bg-white shadow-md">
-            {/* Left Section */}
+<nav className="sticky top-0 z-50 flex items-center justify-between px-4 py-4 bg-white shadow-md">
+{/* Left Section */}
             <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                     <div className="bg-black text-white w-8 h-8 flex items-center justify-center rounded-md font-bold">
@@ -60,7 +66,7 @@ function Navbar() {
                     </span>
                 </div>
                 <div className="relative">
-                    <ShoppingCart className="cursor-pointer w-5 h-5" />
+                    <ShoppingCart onClick={handelNavigate} className="cursor-pointer w-5 h-5" />
                     <span className="absolute top-[-12px] right-[-12px] bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full md:top-[-10px] md:right-[-10px] md:w-5 md:h-5 lg:top-[-14px] lg:right-[-8px] lg:w-5 lg:h-5">
                         1
                     </span>
