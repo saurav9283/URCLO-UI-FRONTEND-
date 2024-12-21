@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function PolicyModel({isOpen, toggleModal}) {
 
@@ -8,7 +8,7 @@ function PolicyModel({isOpen, toggleModal}) {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white rounded-lg shadow-lg w-[90%] max-w-md p-6">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold">Cancellation policy</h2>
+              <h2 className=" text-xl md:text-3xl font-semibold">Cancellation policy</h2>
               <button
                 onClick={toggleModal}
                 className="text-gray-500 hover:text-gray-700"
@@ -17,12 +17,12 @@ function PolicyModel({isOpen, toggleModal}) {
               </button>
             </div>
 
-            <div className="mb-6">
+            <div className="mb-6 ">
               <div className="flex justify-between border-b pb-2 mb-2">
                 <span className="font-medium">Time</span>
                 <span className="font-medium">Fee</span>
               </div>
-              <div className="flex justify-between mb-2">
+              <div className="flex justify-between mb-6">
                 <span>More than 3 hrs before the service</span>
                 <span className="text-green-500">Free</span>
               </div>
