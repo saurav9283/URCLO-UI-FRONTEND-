@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import PolicyModel from "./PolicyModel";
 import { MapPin } from "lucide-react";
+import AddressModel from "./AddressModel";
 
 const AddCardComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAddressOpen, setIsAddressOpen] = useState(false);
+
+  const toggleAddressModal = () => {
+    setIsAddressOpen(!isAddressOpen);
+  }
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -19,7 +25,7 @@ const AddCardComponent = () => {
           </div>
           <div className="border-b pb-4">
             <h3 className="font-bold text-lg">Address</h3>
-            <button className="mt-2 py-2 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+            <button onClick={toggleAddressModal} className="mt-2 py-2 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
               Select an address
             </button>
           </div>
@@ -42,6 +48,7 @@ const AddCardComponent = () => {
         </div>
       </div>
       {isOpen && <PolicyModel isOpen={isOpen} toggleModal={toggleModal} />}
+      {isAddressOpen && <AddressModel isAddressOpen={isAddressOpen} toggleAddressModal={toggleAddressModal} />}
 
       <div className="flex flex-col  w-full md:w-1/3  bg-white rounded-lg shadow-md mt-4 md:mt-0 md:ml-6 p-6 space-y-10">
         <div className="max-h-[60vh] overflow-y-scroll">
