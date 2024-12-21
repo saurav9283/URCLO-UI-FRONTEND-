@@ -39,38 +39,38 @@ const AddCardComponent = () => {
       <div className="flex flex-col w-full md:w-2/3 max-h-[85vh] bg-white rounded-lg shadow-md p-10 space-y-8">
         <div className="border p-2">
           <div className="border-b pb-4">
-            <h3 className="font-bold flex items-center gap-5 text-lg"> <span><MapPin /></span>Send booking details to</h3>
-            <p className="text-gray-600 m-2">+91 8434169932</p>
+            <h3 className="font-bold flex items-center gap-5 text-lg font-mono"> <span><MapPin /></span>Send booking details to</h3>
+            <p className="text-gray-600 m-2 font-mono">+91 8434169932</p>
           </div>
           <div className="border-b pb-4">
-          <h3 className="font-bold text-lg">Address <span className="font-normal">{currentAddress}</span></h3>
+            <h3 className="font-bold text-lg font-mono">Address - <span className="font-normal">{currentAddress}</span></h3>
 
-            <button onClick={toggleAddressModal} className="mt-2 py-2 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+            <button onClick={toggleAddressModal} className="mt-2 py-2 px-4 bg-purple-600 font-mono text-white rounded-lg hover:bg-purple-700">
               Select an address
             </button>
           </div>
           <div className="border-b pb-4">
-            <h3 className="font-semibold text-lg">Slot</h3>
-            <p className="text-gray-400">Select a slot</p>
+            <h3 className="font-semibold text-lg font-mono">Slot</h3>
+            <p className="text-gray-400 font-mono">Select a slot</p>
           </div>
           <div>
-            <h3 className="font-bold text-lg">Payment Method</h3>
-            <p className="text-gray-400">Select a payment method</p>
+            <h3 className="font-bold text-lg font-mono">Payment Method</h3>
+            <p className="text-gray-400 font-mono">Select a payment method</p>
           </div>
         </div>
         <div className="w-full mt-6">
-          <h3 className="font-bold text-lg">Cancellation policy</h3>
-          <p className="text-gray-600  text-sm">
+          <h3 className="font-bold text-lg font-mono">Cancellation policy</h3>
+          <p className="text-gray-600  text-sm font-mono">
             Free cancellations if done more than 3 hrs before the service or if a
             professional isn’t assigned. A fee will be charged otherwise.
           </p>
-          <p onClick={toggleModal} className=" cursor-pointer  underline mt-2 font-semibold">Read full policy</p>
+          <p onClick={toggleModal} className=" cursor-pointer  underline mt-2 font-semibold font-mono">Read full policy</p>
         </div>
       </div>
       {isOpen && <PolicyModel isOpen={isOpen} toggleModal={toggleModal} />}
       {isAddressOpen && <AddressModel currentLocation={currentLocation} isAddressOpen={isAddressOpen} toggleAddressModal={toggleAddressModal} />}
 
-      <div className="flex flex-col  w-full md:w-1/3  bg-white rounded-lg shadow-md mt-4 md:mt-0 md:ml-6 p-6 space-y-10">
+      <div className="flex flex-col font-mono  w-full md:w-1/3  bg-white rounded-lg shadow-md mt-4 md:mt-0 md:ml-6 p-6 space-y-10">
         <div className="max-h-[60vh] space-y-5 overflow-y-scroll">
           <div className="border-b pb-4">
             <h3 className="font-bold">Island chimney check-up</h3>
