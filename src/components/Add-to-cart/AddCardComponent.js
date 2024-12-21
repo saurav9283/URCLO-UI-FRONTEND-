@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PolicyModel from "./PolicyModel";
-import { MapPin } from "lucide-react";
+import { Clock, IndianRupee, MapPin } from "lucide-react";
 import AddressModel from "./AddressModel";
 
 const AddCardComponent = () => {
@@ -36,30 +36,34 @@ const AddCardComponent = () => {
 
   return (
     <div className="flex flex-col md:flex-row w-full min-h-screen p-3 bg-gray-50">
-      <div className="flex flex-col w-full md:w-2/3 max-h-[85vh] bg-white rounded-lg shadow-md p-10 space-y-8">
+      <div className="flex flex-col w-full md:w-2/3 max-h-[95vh] bg-white rounded-lg shadow-md p-10 space-y-8">
         <div className="border p-2">
-          <div className="border-b pb-4">
+          <div className="border-b p-3">
             <h3 className="font-bold flex items-center gap-5 text-lg font-mono"> <span><MapPin /></span>Send booking details to</h3>
-            <p className="text-gray-600 m-2 font-mono">+91 8434169932</p>
+            <p className="text-gray-600 m-2 font-mono md:ml-10">+91 8434169932</p>
           </div>
-          <div className="border-b pb-4">
-            <h3 className="font-bold text-lg font-mono">Address - <span className="font-normal">{currentAddress}</span></h3>
-
-            <button onClick={toggleAddressModal} className="mt-2 py-2 px-4 bg-purple-600 font-mono text-white rounded-lg hover:bg-purple-700">
+          <div className="border-b p-3">
+            <h3 className="font-bold text-lg font-mono inline-flex items-center gap-5">
+              <MapPin className="mr-1" /> Address - <span className="font-normal ml-1">{currentAddress}</span>
+            </h3>
+            <button onClick={toggleAddressModal} className="block mt-2 md:ml-10 py-2 px-4 bg-purple-600 font-mono text-white rounded-lg hover:bg-purple-700">
               Select an address
             </button>
           </div>
-          <div className="border-b pb-4">
-            <h3 className="font-semibold text-lg font-mono">Slot</h3>
-            <p className="text-gray-400 font-mono">Select a slot</p>
+          <div className="border-b p-3">
+            <h3 className="font-semibold text-lg font-mono inline-flex items-center">
+              <Clock className="mr-1 " /> <p className="md:ml-5">Slot</p>
+            </h3>           
+            <p className="text-gray-400 font-mono md:ml-10">Select a slot</p>
           </div>
-          <div>
-            <h3 className="font-bold text-lg font-mono">Payment Method</h3>
-            <p className="text-gray-400 font-mono">Select a payment method</p>
+          <div className="p-3">
+            <h3 className="font-bold text-lg inline-flex font-mono"><IndianRupee
+             /><p className="md:ml-5">Payment Method</p></h3>
+            <p className="text-gray-400 font-mono md:ml-10">Select a payment method</p>
           </div>
         </div>
-        <div className="w-full mt-6">
-          <h3 className="font-bold text-lg font-mono">Cancellation policy</h3>
+        <div className="w-full">
+          <h3 className="font-bold text-xl font-mono md:mt-[-10px]">Cancellation policy</h3>
           <p className="text-gray-600  text-sm font-mono">
             Free cancellations if done more than 3 hrs before the service or if a
             professional isn’t assigned. A fee will be charged otherwise.
