@@ -15,6 +15,25 @@ const AddCardComponent = () => {
     setIsOpen(!isOpen);
   }
 
+  const [currentAddress, setCurrentAddress] = useState('');
+  const [add, setAdd] = useState('');
+
+  const currentLocation = () => {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      const { latitude, longitude } = pos.coords;
+      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("object", data);
+          setAdd(data.address);
+          const formattedAddress = `${data.address?.house_number || ''}, ${data.address?.residential || data?.address?.city || ''}, ${data.address?.state_district || ''}, ${data.address?.state || ''}`;
+          setCurrentAddress(formattedAddress.trim().replace(/^,|,$/g, ''));
+        })
+        .catch((error) => console.error("Error fetching location:", error));
+    });
+  };
+
   return (
     <div className="flex flex-col md:flex-row w-full min-h-screen p-3 bg-gray-50">
       <div className="flex flex-col w-full md:w-2/3 max-h-[85vh] bg-white rounded-lg shadow-md p-10 space-y-8">
@@ -24,7 +43,8 @@ const AddCardComponent = () => {
             <p className="text-gray-600 m-2">+91 8434169932</p>
           </div>
           <div className="border-b pb-4">
-            <h3 className="font-bold text-lg">Address</h3>
+          <h3 className="font-bold text-lg">Address <span className="font-normal">{currentAddress}</span></h3>
+
             <button onClick={toggleAddressModal} className="mt-2 py-2 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
               Select an address
             </button>
@@ -48,10 +68,10 @@ const AddCardComponent = () => {
         </div>
       </div>
       {isOpen && <PolicyModel isOpen={isOpen} toggleModal={toggleModal} />}
-      {isAddressOpen && <AddressModel isAddressOpen={isAddressOpen} toggleAddressModal={toggleAddressModal} />}
+      {isAddressOpen && <AddressModel currentLocation={currentLocation} isAddressOpen={isAddressOpen} toggleAddressModal={toggleAddressModal} />}
 
       <div className="flex flex-col  w-full md:w-1/3  bg-white rounded-lg shadow-md mt-4 md:mt-0 md:ml-6 p-6 space-y-10">
-        <div className="max-h-[60vh] overflow-y-scroll">
+        <div className="max-h-[60vh] space-y-5 overflow-y-scroll">
           <div className="border-b pb-4">
             <h3 className="font-bold">Island chimney check-up</h3>
             <div className="flex justify-between items-center mt-2">
