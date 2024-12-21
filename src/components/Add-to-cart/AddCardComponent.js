@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PolicyModel from "./PolicyModel";
+import { MapPin } from "lucide-react";
 
 const AddCardComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,13 +10,12 @@ const AddCardComponent = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row w-full min-h-screen p-4 bg-gray-50">
-      {/* Left Section */}
-      <div className="flex flex-col w-full md:w-2/3 max-h-[85vh] bg-white rounded-lg shadow-md p-10 space-y-10">
-        <div>
+    <div className="flex flex-col md:flex-row w-full min-h-screen p-3 bg-gray-50">
+      <div className="flex flex-col w-full md:w-2/3 max-h-[85vh] bg-white rounded-lg shadow-md p-10 space-y-8">
+        <div className="border p-2">
           <div className="border-b pb-4">
-            <h3 className="font-bold text-lg">Send booking details to</h3>
-            <p className="text-gray-600">+91 8434169932</p>
+            <h3 className="font-bold flex items-center gap-5 text-lg"> <span><MapPin /></span>Send booking details to</h3>
+            <p className="text-gray-600 m-2">+91 8434169932</p>
           </div>
           <div className="border-b pb-4">
             <h3 className="font-bold text-lg">Address</h3>
@@ -24,7 +24,7 @@ const AddCardComponent = () => {
             </button>
           </div>
           <div className="border-b pb-4">
-            <h3 className="font-bold text-lg">Slot</h3>
+            <h3 className="font-semibold text-lg">Slot</h3>
             <p className="text-gray-400">Select a slot</p>
           </div>
           <div>
@@ -41,9 +41,8 @@ const AddCardComponent = () => {
           <p onClick={toggleModal} className=" cursor-pointer  underline mt-2 font-semibold">Read full policy</p>
         </div>
       </div>
-      {isOpen && <PolicyModel isOpen = {isOpen} toggleModal={toggleModal}/>}
+      {isOpen && <PolicyModel isOpen={isOpen} toggleModal={toggleModal} />}
 
-      {/* Right Section */}
       <div className="flex flex-col  w-full md:w-1/3  bg-white rounded-lg shadow-md mt-4 md:mt-0 md:ml-6 p-6 space-y-10">
         <div className="max-h-[60vh] overflow-y-scroll">
           <div className="border-b pb-4">
